@@ -72,11 +72,11 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 10px on each click
-        buttonWidth += 35;
-        fontSize += 25; // Increase font size by 3px on each click
+        buttonHeight += 35; // Increase height by 35px on each click
+        buttonWidth += 35; // Increase width by 35px on each click
+        fontSize += 25; // Increase font size by 5px on each click
         yesButton.style.height = `${buttonHeight}px`; // Update button height
-        yesButton.style.width = `${buttonWidth}px`;
+        yesButton.style.width = `${buttonWidth}px`; // Update button width
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Really really sureee??", "Gelle ;(", "PLEASE PLEASE PLEASEE", "Iiyak na lang ako"][noClickCount];
@@ -86,7 +86,7 @@
   
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Yayyy!! :3 I knew you wouldn't say no"; // Change the question text
+      valentineQuestion.textContent = "Yayyy!! I knew you wouldn't say no"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
