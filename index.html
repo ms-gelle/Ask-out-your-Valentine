@@ -10,9 +10,11 @@
       background: rgb(255, 208, 229);
       background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
     }
+
     .bounce2 {
       animation: bounce2 2s ease infinite;
     }
+
     @keyframes bounce2 {
       0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -33,11 +35,11 @@
       <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
-          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 m[...]
+          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
           Yes
         </button>
         <button id="noButton"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-[...]
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
           No
         </button>
       </div>
@@ -70,24 +72,15 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
+        buttonHeight += 35; // Increase height by 10px on each click
         buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
+        fontSize += 25; // Increase font size by 3px on each click
         yesButton.style.height = `${buttonHeight}px`; // Update button height
         yesButton.style.width = `${buttonWidth}px`;
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount < 6) {
-          noButton.textContent = ["No", "Are you sure?", "REALLY REALLY SURE??", "Gelle ;(", "PLEASE PLEASE PLEASE", "Iiyak na lang ako"][noClickCount];
+          noButton.textContent = ["No", "Are you sure?", "Really really sureeee??", "Gelle ;(", "PLEASE PLEASE PLEASEE", "Iiyak na lang ako"][noClickCount];
         }
-      } else {
-        // Make the yes button fill the screen
-        yesButton.style.position = 'fixed';
-        yesButton.style.top = '0';
-        yesButton.style.left = '0';
-        yesButton.style.width = '100vw';
-        yesButton.style.height = '100vh';
-        yesButton.style.zIndex = '1000';
-        yesButton.style.fontSize = '4rem';
       }
     });
   
