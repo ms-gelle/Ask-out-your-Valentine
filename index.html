@@ -26,6 +26,18 @@
         transform: translateY(-10px);
       }
     }
+
+    .fill-screen {
+      width: 100vw;
+      height: 100vh;
+      font-size: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
   </style>
 </head>
 <body class="gradient-background">
@@ -35,11 +47,11 @@
       <h2 id="valentineQuestion" class="text-4xl font-bold italic text-[#bd1e59] my-4">Will you be my Valentine?</h2>
       <div class="flex gap-4 pt-[20px] items-center" id="responseButtons">
         <button id="yesButton"
-          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[75px] px-4 py-2 bg-green-500 text-white transition">
+          class="bounce2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium disabled:pointer-events-none disabled:opacity-50 hover:bg-green-400 min-h-12 min-w-[80px]">
           Yes
         </button>
         <button id="noButton"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[75px] w-auto px-4 py-2 bg-red-500 text-white">
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-[20px] font-medium transition disabled:pointer-events-none disabled:opacity-50 hover:bg-red-700 h-12 min-w-[80px]">
           No
         </button>
       </div>
@@ -53,7 +65,7 @@
     const imageDisplay = document.getElementById('imageDisplay');
     const valentineQuestion = document.getElementById('valentineQuestion');
     const responseButtons = document.getElementById('responseButtons');
-  
+
     let noClickCount = 0;
     let buttonHeight = 48; // Starting height in pixels
     let buttonWidth = 80;
@@ -67,9 +79,9 @@
       "./images/image6.gif",
       "./images/image7.gif"
     ];
-  
+
     noButton.addEventListener('click', function() {
-      if (noClickCount < 5) {
+      if (noClickCount < 6) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
         buttonHeight += 35; // Increase height by 35px on each click
@@ -82,15 +94,16 @@
           noButton.textContent = ["No", "Are you sure?", "Really really sureee??", "Gelle ;(", "PLEASE PLEASE PLEASEE", "Iiyak na lang ako"][noClickCount];
         } else {
           yesButton.classList.add('fill-screen'); // Fill the screen on the 6th click
+        }
       }
     });
-  
+
     yesButton.addEventListener('click', () => {
       imageDisplay.src = './images/image7.gif'; // Change to image7.gif
       valentineQuestion.textContent = "Yayyy!! I knew you wouldn't say no"; // Change the question text
       responseButtons.style.display = 'none'; // Hide both buttons
       confetti(); // Trigger confetti animation
     });
-  </script>  
+  </script>
 </body>
 </html>
