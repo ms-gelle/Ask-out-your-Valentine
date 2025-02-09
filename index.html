@@ -80,7 +80,8 @@
         yesButton.style.fontSize = `${fontSize}px`; // Update font size
         if (noClickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Really really sureee??", "Gelle ;(", "PLEASE PLEASE PLEASEE", "Iiyak na lang ako"][noClickCount];
-        }
+        } else {
+          yesButton.classList.add('fill-screen'); // Fill the screen on the 6th click
       }
     });
   
